@@ -1,0 +1,71 @@
+input[type=text], select {
+    width: 70%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box;
+    align-items: center;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+  input[type=submit] {
+    width: 30%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+div#login{
+    position: absolute;
+    top: 20%;
+    left: 33%;
+    border-radius: 10px;
+    width: 350px;
+    background-color: #f2f2f2;
+    padding: 15px;
+}
+
+div#fondo{
+  position: static;
+  background-repeat: no-repeat;
+  background-size: 100%, 100%;
+  left: 100px;
+  width: 1024px;
+  height: 626px;
+  background-image: url("https://stmed.net/sites/default/files/bark-wallpapers-27771-4214403.jpg");
+}
+
+div#abajo{
+  position: absolute;
+  top: 576px;
+  height: 50px;
+  width: 1024px;
+  left: 0px;
+  background-color: black;
+}
+
+p#abajo{
+  margin: auto;
+  width: 100%;
+}
+
+input#user{
+  position: absolute;
+  left: 80px;
+  top: 15px;
+}
+
+input#lname{
+  position: absolute;
+  left: 80px;
+  top: 85px;
+}

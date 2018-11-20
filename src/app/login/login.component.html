@@ -1,0 +1,23 @@
+
+<div id="fondo">  
+  </div>     
+  <form>
+    <div id="login">
+      <label for="fname">User: </label>
+        <br>
+      <input id="user" [(ngModel)]="user" type="text" placeholder="User">
+        <br/>
+      <label for="lname">Password: </label>
+        <br>
+      <input id="lname" [(ngModel)]="password" type="text" name="lastname" placeholder="Password">
+        <br>
+        <br>
+      <input type="submit" (click)="verificar()">
+    </div>
+  </form>
+
+<div id="abajo" style="color:white">
+  <p id="letra"> 
+    Logbook V 0.1 by Diego Acajabón and Luis Serrano
+  </p>
+</div>

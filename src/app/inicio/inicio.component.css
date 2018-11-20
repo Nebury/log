@@ -1,0 +1,11 @@
+div#card{
+    left: 50px;
+}
+
+div#grid{
+    margin-left: 3%;
+    background-color: black;
+    margin-right: 18%;
+    height: 200px;
+    border-radius: 30px;
+}
