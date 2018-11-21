@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ClientesComponent } from './clientes/clientes.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { HistorialComponent } from './historial/historial.component';
-import { NuevoProyectoComponent } from './nuevo-proyecto/nuevo-proyecto.component';
-import { MisTareasComponent } from './mis-tareas/mis-tareas.component';
-import { LoginComponent } from './login/login.component';
+import { ClientesComponent } from '../components/clientes/clientes.component';
+import { InicioComponent } from '../components/inicio/inicio.component';
+import { HistorialComponent } from '../components/historial/historial.component';
+import { NuevoProyectoComponent } from '../components/nuevo-proyecto/nuevo-proyecto.component';
+import { MisTareasComponent } from '../components/mis-tareas/mis-tareas.component';
+import { LoginComponent } from '../components/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
