@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-import { Proyecto } from '../Modelo/Proyecto';
-import { Tarea } from '../Modelo/Tarea';
-import { Equipo } from '../Modelo/Equipo';
+import { Proyecto } from '../../model/Proyecto';
+import { Tarea } from '../../model/Tarea';
+import { Equipo } from '../../model/Equipo';
 
 @Component({
   selector: 'app-nuevo-proyecto',

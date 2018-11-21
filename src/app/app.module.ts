@@ -7,17 +7,16 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { HistorialComponent } from './historial/historial.component';
-import { ClientesComponent } from './clientes/clientes.component';
-import { NuevoProyectoComponent } from './nuevo-proyecto/nuevo-proyecto.component';
-import { MisTareasComponent } from './mis-tareas/mis-tareas.component';
+import { InicioComponent } from '../app/components/inicio/inicio.component';
+import { HistorialComponent } from '../app/components/historial/historial.component';
+import { ClientesComponent } from '../app/components/clientes/clientes.component';
+import { NuevoProyectoComponent } from '../app/components/nuevo-proyecto/nuevo-proyecto.component';
+import { MisTareasComponent } from '../app/components/mis-tareas/mis-tareas.component';
 
-import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll'
-
+import { AppRoutingModule } from '../app/routing/app-routing.module';
+import { LoginComponent } from '../app/components/login/login.component';
+import { NavbarComponent } from '../app/components/navbar/navbar.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
