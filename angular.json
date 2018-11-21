@@ -24,12 +24,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "C:/Users/Practicantes/node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "C:/Users/Practicantes/node_modules/jquery/dist/jquery.slim.min.js",
-              "C:/Users/Practicantes/node_modules/popper.js/dist/umd/popper.min.js",
-              "C:/Users/Practicantes/node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/jquery/dist/jquery.slim.min.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
