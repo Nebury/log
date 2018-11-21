@@ -1,71 +1,118 @@
 input[type=text], select {
-    width: 70%;
-    padding: 10px 20px;
-    margin: 10px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    box-sizing: border-box;
-    align-items: center;
-  }
-
-  input[type=submit]:hover {
-    background-color: #45a049;
+  width: 70%;
+  padding: 10px 20px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  box-sizing: border-box;
+  align-items: center;
 }
 
-  input[type=submit] {
-    width: 30%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 4px 0;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+input[type=submit] {
+  width: 30%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 4px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 div#login{
-    position: absolute;
-    top: 20%;
-    left: 33%;
-    border-radius: 10px;
-    width: 350px;
-    background-color: #f2f2f2;
-    padding: 15px;
+  position: absolute;
+  top: 30%;
+  left: 29%;
+  border-radius: 10px;
+  width: 40%;
+  background-color: #f2f2f2;
+  padding: 15px;
 }
 
 div#fondo{
-  position: static;
-  background-repeat: no-repeat;
-  background-size: 100%, 100%;
-  left: 100px;
-  width: 1024px;
-  height: 626px;
-  background-image: url("https://stmed.net/sites/default/files/bark-wallpapers-27771-4214403.jpg");
+position: absolute;
+background-repeat: no-repeat;
+width: 100%;
+height: 100%;
+background-image: url("https://stmed.net/sites/default/files/bark-wallpapers-27771-4214403.jpg");
 }
 
-div#abajo{
-  position: absolute;
-  top: 576px;
-  height: 50px;
-  width: 1024px;
-  left: 0px;
-  background-color: black;
-}
 
-p#abajo{
-  margin: auto;
-  width: 100%;
-}
 
 input#user{
-  position: absolute;
-  left: 80px;
-  top: 15px;
+position: absolute;
+left: 80px;
+top: 15px;
 }
 
 input#lname{
-  position: absolute;
-  left: 80px;
-  top: 85px;
+position: absolute;
+left: 80px;
+top: 85px;
+}
+
+.context-dark, .bg-gray-dark, .bg-primary {
+color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+color: #ffffff;
+}
+.nav-list li {
+padding-top: 5px;
+padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+margin-left: 0;
+opacity: 1;
+visibility: visible;
+}
+
+ul, ol {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.social-inner {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+padding: 23px;
+font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+text-transform: uppercase;
+color: rgba(255, 255, 255, 0.5);
+}
+.social-container .col {
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+content: "\f14f";
+font: 400 21px/1 "Material Design Icons";
+color: #4d6de6;
+display: inline-block;
+vertical-align: baseline;
+margin-left: -28px;
+margin-right: 7px;
+opacity: 0;
+visibility: hidden;
+transition: .22s ease;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+height: 102px;
+background-color: #000;
+color: white;
+text-align: center;
 }
