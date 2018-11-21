@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MisTareasComponent implements OnInit {
 
+  algo: number;
+
   constructor() { }
 
   ngOnInit() {
