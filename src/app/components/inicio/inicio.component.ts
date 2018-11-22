@@ -1,4 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
+import { ProyectoService } from '../../services/proyecto.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,21 +8,23 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  once: boolean = false;
-
-  constructor() {
+  constructor(private service: ProyectoService) {
   }
+
+  proyectos = [];
 
   @HostListener("window:scroll", ['$event'])
   scroll($event: Event){
-    const top = event.srcElement.children[0].scrollTop;
-    const height = event.srcElement.children[0].scrollHeight;
-    if((top + 626) == height){
-      alert('bottom')
+    const top = window.scrollY
+    const doc = document.body.offsetHeight;
+    const win = window.outerHeight;
+    if (Math.trunc(top) == (doc - win + 32)){
+      console.log('bottom')
     }
   }
 
   ngOnInit() {
+    this.proyectos = this.service.initialProyects(10);
   }
 
 }

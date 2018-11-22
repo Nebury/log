@@ -8,18 +8,18 @@ export class ProyectoService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getProyectos(batch){
+  initialProyects(limit: number){
     let array = [];
     this.db.database.ref('/Proyectos')
-    .orderByKey()
-    .limitToLast(batch)
+    .limitToLast(limit)
     .on('value', arr => {
-      arr.forEach(each => {
-        let item = each.val();
-        item.key = each.key;
+      arr.forEach(element => {
+        let item = element.val();
+        item.key = element.key;
         array.push(item);
       })
     });
     return array.reverse();
   }
+
 }
