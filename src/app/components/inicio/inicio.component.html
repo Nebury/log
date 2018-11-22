@@ -3,3 +3,15 @@
   Proyectos Activos
 </h1>
 <br/>
+<input type="submit" (click)="more()">
+<div (window:scroll)="scroll($event)" class="container" >
+  <div class="row" *ngFor="let proyecto of proyectos">
+    <div class="col-sm-4">
+      <h1>{{ proyecto.titulo }}</h1>
+      <h5>{{ proyecto.key }}</h5>
+      <p>{{ proyecto.descripcion }}</p>
+      <br/>
+    </div>
+  </div>
+</div>
+<br/>
