@@ -19,12 +19,17 @@ export class InicioComponent implements OnInit {
     const doc = document.body.offsetHeight;
     const win = window.outerHeight;
     if (Math.trunc(top) == (doc - win + 32)){
-      console.log('bottom')
+//      this.more()
+      alert(this.service.lastKey)
     }
   }
 
   ngOnInit() {
-    this.proyectos = this.service.initialProyects(10);
+    this.proyectos = this.service.initialProyects(5);
+  }
+
+  more(){
+    this.proyectos = [...this.proyectos, this.service.getMore(5)]
   }
 
 }
