@@ -1,7 +1,7 @@
 
 div#back{
     margin: auto;
-    height: 500px;
+    height: 750px;
     width: 80%;
     background-color: whitesmoke;
 }
@@ -12,18 +12,63 @@ h1#titulo{
 
 input{
     height: 30px;
-    width: 36%;
-  padding: 10px 10px;
-  margin: 10px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  align-items: center;
+    width: 34.5%;
+    padding: 10px 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    align-items: center;
+}
+input#titulo{
+    position: absolute;
+    left: 20%;
 }
 
 input#descripcion{
     width: 150%;
     height: 30px;   
 }
+
+input#Guardar{
+    position: absolute;
+    left: 60%;
+    height: 60px;
+    width: 25%;
+}
+
+select#cliente{
+    position: absolute;
+    left: 20%;
+}
+
+form#descripcion{
+    position: absolute;
+    left: 20%;
+
+}
+
+select{
+    height: 38px;
+    width: 18%;
+}
+
+select#pm{
+    position: absolute;
+    left: 20%;
+}
+
+input#semanas{
+    position: absolute;
+
+    left: 20%;
+    width: 18%;
+}
+
+input#fecha{
+    position: absolute;
+    left: 20%;
+}
+
 
