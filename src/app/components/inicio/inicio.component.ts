@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 
-
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
