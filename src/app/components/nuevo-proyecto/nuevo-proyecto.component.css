@@ -1,3 +1,4 @@
+
 div#back{
     margin: auto;
     height: 500px;
@@ -10,7 +11,19 @@ h1#titulo{
 }
 
 input{
-    border: whitesmoke;
-    border-bottom: 2px solid blue;
-    background-color: whitesmoke;
+    height: 30px;
+    width: 36%;
+  padding: 10px 10px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  align-items: center;
 }
+
+input#descripcion{
+    width: 150%;
+    height: 30px;   
+}
+
