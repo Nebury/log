@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { last } from '@angular/router/src/utils/collection';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Injectable({
   providedIn: 'root'
@@ -8,26 +7,11 @@ import { last } from '@angular/router/src/utils/collection';
 export class ProyectoService {
 
   constructor(private db: AngularFireDatabase) { }
-
+  lista: AngularFireList<any>;
   lastKey: string = '';
 
-  initialProyects(){
-    let gotKey = false;
-    let array = [];
-    this.db.database.ref('/Proyectos')
-    .limitToLast(5)
-    .on('value', arr => {
-      arr.forEach(element => {
-        let item = element.val();
-        item.key = element.key;
-        array.push(item);
-        if(!gotKey){
-          this.lastKey = item.key;
-          gotKey = true;
-        }
-      })
-    });
-    return array.reverse();
+  getProyect(){
+    return this.lista = this.db.list('/Proyectos');
   }
 
   getMore(limit: number){

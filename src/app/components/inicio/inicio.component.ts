@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
-import { ProyectoService } from '../../services/proyecto.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { ProyectoService } from 'src/app/services/proyecto.service';
+import { Proyecto } from 'src/app/model/Proyecto';
 
 @Component({
   selector: 'app-inicio',
@@ -8,10 +10,12 @@ import { ProyectoService } from '../../services/proyecto.service';
 })
 export class InicioComponent implements OnInit {
 
-  constructor(private service: ProyectoService) {
+  constructor(private db: AngularFireDatabase, private service: ProyectoService) {
   }
 
-  proyectos = [];
+  proyectos: Proyecto[];
+  gotKey: boolean = false;
+  lastKey: string = '';
 
   @HostListener("window:scroll", ['$event'])
   scroll($event: Event){
@@ -19,17 +23,52 @@ export class InicioComponent implements OnInit {
     const doc = document.body.offsetHeight;
     const win = window.outerHeight;
     if (Math.trunc(top) == (doc - win + 32)){
-//      this.more()
-      alert(this.service.lastKey)
+      alert(this.lastKey)
     }
   }
 
   ngOnInit() {
-    this.proyectos = this.service.initialProyects();
+    let array = [];
+    this.service.getProyect()
+    .snapshotChanges()
+    .subscribe(list => {
+      list.forEach(proy => {
+        let x = proy.payload.toJSON();
+        x['$key'] = proy.key;
+        let y = x as Proyecto;
+        y.key = proy.key;
+        if (y.estado == 'Terminado'){
+          array.push(y)
+        }
+        if (!this.gotKey){
+          this.lastKey = y.key;
+          this.gotKey = true;
+        }
+      })
+    });
+    this.proyectos = array.reverse();
   }
 
   more(){
-    this.proyectos = [...this.proyectos, this.service.getMore(5)]
+    let array2 = [];
+    let cont = 1;
+    this.db.database.ref('/Proyectos')
+    .orderByKey()
+    .limitToLast(6)
+    .endAt(this.lastKey)
+    .on('value', arr => {
+      arr.forEach(element => {
+        let item = element.val();
+        item.key = element.key;
+        if (cont <= 5){
+          array2.push(item);  
+          if (cont == 1){
+            this.lastKey = item.key;
+          }
+        }
+        cont += 1;
+      })
+    });
   }
 
 }
