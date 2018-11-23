@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 import { Proyecto } from 'src/app/model/Proyecto';
+import { query } from '@angular/core/src/render3/query';
 
 @Component({
   selector: 'app-inicio',
@@ -29,7 +30,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     let array = [];
-    this.service.getProyect()
+    this.service.getProyect(5)
     .snapshotChanges()
     .subscribe(list => {
       list.forEach(proy => {
@@ -46,27 +47,33 @@ export class InicioComponent implements OnInit {
         }
       })
     });
-    this.proyectos = array.reverse();
+    this.proyectos = array;
   }
 
   more(){
     let array2 = [];
     let cont = 1;
-    this.db.database.ref('/Proyectos')
-    .orderByKey()
-    .limitToLast(6)
-    .endAt(this.lastKey)
-    .on('value', arr => {
-      arr.forEach(element => {
-        let item = element.val();
-        item.key = element.key;
-        if (cont <= 5){
-          array2.push(item);  
-          if (cont == 1){
-            this.lastKey = item.key;
+    this.service.getProyect(5, this.lastKey)
+    .snapshotChanges()
+    .subscribe(list => {
+      list.forEach(proy => {
+/*        let x = proy.payload.toJSON();
+        x['$key'] = proy.key;
+        let y = x as Proyecto;
+        y.key = proy.key;
+        if (y.estado == 'Terminado'){
+          if (cont <= 5){
+            array2.push(y);
+            alert(y.key)
+            if (cont == 1){
+              this.lastKey = y.key;
+            }
           }
         }
         cont += 1;
+        */
+       alert(proy.key)
+       cont += 1;
       })
     });
   }

@@ -10,8 +10,19 @@ export class ProyectoService {
   lista: AngularFireList<any>;
   lastKey: string = '';
 
-  getProyect(){
-    return this.lista = this.db.list('/Proyectos');
+  getProyect(limit: number, end?: string){
+    this.lista = null;
+    if(end == null){
+      return this.lista = this.db.list('/Proyectos', ref => 
+      ref.orderByKey()
+      .ref.limitToLast(limit));
+    }else{
+      return this.lista = this.db.list('/Proyectos', ref => 
+        ref.orderByKey()
+        .ref.endAt('-LRmHKafsiwKt4O4br4o')
+        .ref.limitToLast(limit+1)
+        );
+    }
   }
 
   getMore(limit: number){
