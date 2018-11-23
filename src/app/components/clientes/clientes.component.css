@@ -1,0 +1,12 @@
+div#clientes{
+    position: absolute;
+    left: 3%;
+    margin: left;
+    background-color:whitesmoke;
+    height: 86%;
+    width: 50%;
+}
+
+h1#titulo{
+    margin: center;
+}
