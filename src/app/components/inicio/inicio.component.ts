@@ -25,7 +25,7 @@ export class InicioComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.proyectos = this.service.initialProyects(5);
+    this.proyectos = this.service.initialProyects();
   }
 
   more(){

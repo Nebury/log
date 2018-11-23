@@ -11,11 +11,11 @@ export class ProyectoService {
 
   lastKey: string = '';
 
-  initialProyects(limit: number){
+  initialProyects(){
     let gotKey = false;
     let array = [];
     this.db.database.ref('/Proyectos')
-    .limitToLast(limit)
+    .limitToLast(5)
     .on('value', arr => {
       arr.forEach(element => {
         let item = element.val();
@@ -31,7 +31,6 @@ export class ProyectoService {
   }
 
   getMore(limit: number){
-    this.lastKey = '';
     let array2 = [];
     let cont = 1;
     this.db.database.ref('/Proyectos')
@@ -42,16 +41,16 @@ export class ProyectoService {
       arr.forEach(element => {
         let item = element.val();
         item.key = element.key;
-        if (cont >= 2){
+        if (cont <= 5){
           array2.push(item);  
-        }else if (cont == 2){
-          this.lastKey = item.key;
+          if (cont == 1){
+            this.lastKey = item.key;
+          }
         }
         cont += 1;
       })
     });
-
-    return array2.reverse();
+//    return array2.reverse();
   }
 
 }
