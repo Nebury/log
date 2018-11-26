@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Proyecto } from '../model/Proyecto';
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +25,19 @@ export class ProyectoService {
         );
     }
   }
+
+  addProyect(proyecto: Proyecto){
+    let key;
+    return key = this.db.list('/Proyectos').push({
+      titulo: proyecto.titulo,
+      descripcion: proyecto.descripcion,
+      idCliente: proyecto.idCliente,
+      proyectManager: proyecto.proyectManager,
+      semanas: proyecto.semanas,
+      fechaInicio: proyecto.fechaInicio,
+      fechaFinal: proyecto.fechaFinal,
+      estado: proyecto.estado
+    }).key.toString();
+  }
+
 }
