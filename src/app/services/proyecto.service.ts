@@ -19,8 +19,8 @@ export class ProyectoService {
     }else{
       return this.lista = this.db.list('/Proyectos', ref => 
         ref.orderByKey()
-        .ref.endAt('-LRmHKafsiwKt4O4br4o')
-        .ref.limitToLast(limit+1)
+        .endAt(end)
+        .limitToLast(limit+1)
         );
     }
   }

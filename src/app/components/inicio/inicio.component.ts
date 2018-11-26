@@ -19,12 +19,19 @@ export class InicioComponent implements OnInit {
   lastKey: string = '';
 
   @HostListener("window:scroll", ['$event'])
-  scroll($event: Event){
+  scroll(event){
+/*
+    $event: Event   // parametro
     const top = window.scrollY
     const doc = document.body.offsetHeight;
     const win = window.outerHeight;
     if (Math.trunc(top) == (doc - win + 32)){
       alert(this.lastKey)
+    }
+*/
+    console.log('scrolled')
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      this.more();
     }
   }
 
@@ -57,25 +64,22 @@ export class InicioComponent implements OnInit {
     .snapshotChanges()
     .subscribe(list => {
       list.forEach(proy => {
-/*        let x = proy.payload.toJSON();
+        let x = proy.payload.toJSON();
         x['$key'] = proy.key;
         let y = x as Proyecto;
         y.key = proy.key;
         if (y.estado == 'Terminado'){
           if (cont <= 5){
             array2.push(y);
-            alert(y.key)
             if (cont == 1){
               this.lastKey = y.key;
             }
           }
         }
         cont += 1;
-        */
-       alert(proy.key)
-       cont += 1;
       })
     });
+    this.proyectos = array2.reverse();
   }
 
 }
