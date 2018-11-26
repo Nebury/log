@@ -4,8 +4,7 @@
 <h1 style="text-align:center;">Proyectos Activos</h1>
 <hr>
 <br/>
-<input type="submit" (click)="more()">
-<div (window:scroll)="scroll($event)" class="container" id="cards">
+<div>
   <div class="row" *ngFor="let proyecto of proyectos">
     <div class="col-sm-4">
       <h1>{{ proyecto.titulo }}</h1>
@@ -16,8 +15,10 @@
       <br/>
     </div>
   </div>
-</div>
-</div>
+  <div style="height: 75px" >
+    <input *ngIf="start" type="button" value="Retroceder" (click)="previous()">  -  
+    <input *ngIf="finish" type="button" value="Siguiente" (click)="next()">    
+  </div>
 <br/>
 
 
