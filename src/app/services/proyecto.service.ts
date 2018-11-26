@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { last } from '@angular/router/src/utils/collection';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Injectable({
   providedIn: 'root'
@@ -8,30 +7,25 @@ import { last } from '@angular/router/src/utils/collection';
 export class ProyectoService {
 
   constructor(private db: AngularFireDatabase) { }
-
+  lista: AngularFireList<any>;
   lastKey: string = '';
 
-  initialProyects(limit: number){
-    let gotKey = false;
-    let array = [];
-    this.db.database.ref('/Proyectos')
-    .limitToLast(limit)
-    .on('value', arr => {
-      arr.forEach(element => {
-        let item = element.val();
-        item.key = element.key;
-        array.push(item);
-        if(!gotKey){
-          this.lastKey = item.key;
-          gotKey = true;
-        }
-      })
-    });
-    return array.reverse();
+  getProyect(limit: number, end?: string){
+    this.lista = null;
+    if(end == null){
+      return this.lista = this.db.list('/Proyectos', ref => 
+      ref.orderByKey()
+      .ref.limitToLast(limit));
+    }else{
+      return this.lista = this.db.list('/Proyectos', ref => 
+        ref.orderByKey()
+        .endAt(end)
+        .limitToLast(limit+1)
+        );
+    }
   }
 
   getMore(limit: number){
-    this.lastKey = '';
     let array2 = [];
     let cont = 1;
     this.db.database.ref('/Proyectos')
@@ -42,16 +36,16 @@ export class ProyectoService {
       arr.forEach(element => {
         let item = element.val();
         item.key = element.key;
-        if (cont >= 2){
+        if (cont <= 5){
           array2.push(item);  
-        }else if (cont == 2){
-          this.lastKey = item.key;
+          if (cont == 1){
+            this.lastKey = item.key;
+          }
         }
         cont += 1;
       })
     });
-
-    return array2.reverse();
+//    return array2.reverse();
   }
 
 }

@@ -1,5 +1,4 @@
 export class Proyecto{
-
     titulo: String;
     descripcion: String;
     idCliente: number;
@@ -8,5 +7,5 @@ export class Proyecto{
     fechaInicio: String;
     fechaFinal: String;
     estado: String;
-    
+    key: string;
 }

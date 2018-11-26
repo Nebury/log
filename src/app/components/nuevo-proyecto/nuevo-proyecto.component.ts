@@ -20,7 +20,8 @@ export class NuevoProyectoComponent implements OnInit {
     semanas: null,
     fechaInicio: null,
     fechaFinal: null,
-    estado: null
+    estado: null,
+    key: null,
   };
 
   tarea: Tarea = {
