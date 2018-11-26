@@ -1,5 +1,8 @@
 <app-navbar></app-navbar>
+<br>
+<div class="container" lass="shadow-lg p-3 mb-5 bg-white rounded" id="back">
 <h1 style="text-align:center;">Proyectos Activos</h1>
+<hr>
 <br/>
 <div>
   <div class="row" *ngFor="let proyecto of proyectos">
@@ -7,6 +10,8 @@
       <h1>{{ proyecto.titulo }}</h1>
       <h5>{{ proyecto.key }}</h5>
       <p>{{ proyecto.descripcion }}</p>
+      <br>
+      <hr id="lineas">
       <br/>
     </div>
   </div>
