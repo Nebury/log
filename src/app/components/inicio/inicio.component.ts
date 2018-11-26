@@ -66,9 +66,8 @@ export class InicioComponent implements OnInit {
       if (y.estado == 'Terminado'){
           if (cont <= 5){
             array2.push(y);
-            alert(y.key)
             if (cont == 1){
-              this.lastKey = y.key;
+            this.lastKey = y.key;
             }
           }
         }  
