@@ -12,7 +12,7 @@
   </div>
   <div style="height: 75px" >
     <input *ngIf="start" type="button" value="Retroceder" (click)="previous()">  -  
-    <input  type="button" value="Siguiente" (click)="next()">    
+    <input *ngIf="finish" type="button" value="Siguiente" (click)="next()">    
   </div>
 <br/>
 

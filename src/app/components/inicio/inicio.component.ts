@@ -24,6 +24,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     this.start = false;
+    this.finish = true;
     let array = [];
     this.service.getProyect(5)
     .snapshotChanges()
@@ -32,18 +33,14 @@ export class InicioComponent implements OnInit {
         let x = proy.payload.toJSON();
         let y = x as Proyecto;
         y.key = proy.key;
-        if (x == null){
-          this.finish = true
-        }else{
-          if (y.estado == 'Terminado'){
-            array.push(y)
-          }
-          if (!this.gotKey){
-            this.lastKey = y.key;
-            this.gotKey = true;
-          }
+        if (y.estado == 'Terminado'){
+          array.push(y)
         }
-      })
+        if (!this.gotKey){
+          this.lastKey = y.key;
+          this.gotKey = true;
+        }
+     })
     });
     this.gotKey = false;
     this.proyectos = array;
@@ -56,26 +53,26 @@ export class InicioComponent implements OnInit {
     this.start = true;
     let array2 = [];
     let cont = 1;
+    let over = this.lastKey
     this.service.getProyect(5, this.lastKey)
     .snapshotChanges()
     .subscribe(list => {
       list.forEach(proy => {
-        let x = proy.payload.toJSON();
-        x['$key'] = proy.key;
-        let y = x as Proyecto;
-        y.key = proy.key;
-        if (x == null){
-          this.finish = true;
-        }else{
-        if (y.estado == 'Terminado'){
+      let x = proy.payload.toJSON();
+      x['$key'] = proy.key;
+      let y = x as Proyecto;
+      y.key = proy.key;
+
+      if (y.estado == 'Terminado'){
           if (cont <= 5){
             array2.push(y);
+            alert(y.key)
             if (cont == 1){
               this.lastKey = y.key;
             }
           }
-        }
-      }
+        }  
+
       cont += 1;
       })
     });
@@ -97,19 +94,15 @@ export class InicioComponent implements OnInit {
       .snapshotChanges()
       .subscribe(list => {
         list.forEach(proy => {
-          let x = proy.payload.toJSON();
-          x['$key'] = proy.key;
-          let y = x as Proyecto;
-          y.key = proy.key;
-          if (x == null){
-            this.finish = true;
-          }else{
-          if (y.estado == 'Terminado'){
-            if (cont <= 5){
-              array2.push(y);
-              if (cont == 1){
-                this.lastKey = y.key;
-              }
+        let x = proy.payload.toJSON();
+        x['$key'] = proy.key;
+        let y = x as Proyecto;
+        y.key = proy.key;
+        if (y.estado == 'Terminado'){
+          if (cont <= 5){
+            array2.push(y);
+            if (cont == 1){
+              this.lastKey = y.key;
             }
           }
         }
@@ -117,9 +110,6 @@ export class InicioComponent implements OnInit {
         })
       });
       this.proyectos = array2;
-      if (!this.keyPag.includes(this.lastKey)){
-        this.keyPag.push(this.lastKey)
-      }  
     }
   }
 

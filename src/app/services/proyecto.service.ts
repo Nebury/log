@@ -25,27 +25,4 @@ export class ProyectoService {
     }
   }
 
-  getMore(limit: number){
-    let array2 = [];
-    let cont = 1;
-    this.db.database.ref('/Proyectos')
-    .orderByKey()
-    .limitToLast(limit+1)
-    .endAt(this.lastKey)
-    .on('value', arr => {
-      arr.forEach(element => {
-        let item = element.val();
-        item.key = element.key;
-        if (cont <= 5){
-          array2.push(item);  
-          if (cont == 1){
-            this.lastKey = item.key;
-          }
-        }
-        cont += 1;
-      })
-    });
-//    return array2.reverse();
-  }
-
 }
