@@ -9,6 +9,7 @@ import { MisTareasComponent } from '../components/mis-tareas/mis-tareas.componen
 import { LoginComponent } from '../components/login/login.component';
 import { InformeComponent } from '../components/informe/informe.component';
 import { BitacoraComponent } from '../components/bitacora/bitacora.component';
+import { DescripcionComponent } from '../components/descripcion/descripcion.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'mis-tareas', component: MisTareasComponent},
   { path: 'informe', component: InformeComponent },
   { path: 'bitacora', component: BitacoraComponent },
+  { path: 'descripcion/:id', component: DescripcionComponent },
 ];
 
 @NgModule({

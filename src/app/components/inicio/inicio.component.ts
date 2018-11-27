@@ -25,16 +25,14 @@ export class InicioComponent implements OnInit {
     this.start = false;
     this.finish = true;
     let array = [];
-    this.service.getProyect(5)
+    this.service.getProyects(5, null, true)
     .snapshotChanges()
     .subscribe(list => {
       list.forEach(proy => {
         let x = proy.payload.toJSON();
         let y = x as Proyecto;
         y.key = proy.key;
-        if (y.estado == 'Terminado'){
-          array.push(y)
-        }
+        array.push(y)
         if (!this.gotKey){
           this.lastKey = y.key;
           this.gotKey = true;
@@ -48,12 +46,14 @@ export class InicioComponent implements OnInit {
     }
   }
 
+  //no sirve
+
   next(){
     this.start = true;
     let array2 = [];
     let cont = 1;
     let over = this.lastKey
-    this.service.getProyect(5, this.lastKey)
+    this.service.getProyects(5, this.lastKey, true)
     .snapshotChanges()
     .subscribe(list => {
       list.forEach(proy => {
@@ -80,6 +80,7 @@ export class InicioComponent implements OnInit {
     if (!this.keyPag.includes(this.lastKey)){
       this.keyPag.push(this.lastKey)
     }
+
   }
 
   previous(){
@@ -90,26 +91,31 @@ export class InicioComponent implements OnInit {
     }else{
       let array2 = [];
       let cont = 1;
-      this.service.getProyect(5, this.keyPag[this.pos])
+      this.service.getProyects(5, this.keyPag[this.pos], true)
       .snapshotChanges()
       .subscribe(list => {
         list.forEach(proy => {
         let x = proy.payload.toJSON();
-        x['$key'] = proy.key;
         let y = x as Proyecto;
         y.key = proy.key;
-        if (y.estado == 'Terminado'){
-          if (cont <= 5){
-            array2.push(y);
-            if (cont == 1){
-              this.lastKey = y.key;
-            }
+        if (cont <= 5){
+          array2.push(y);
+          if (cont == 1){
+            this.lastKey = y.key;
           }
         }
         cont += 1;
         })
       });
       this.proyectos = array2;
+    }
+  }
+
+  borrar(proy: Proyecto){
+    if (confirm("¿Está seguro de eliminar el proyecto elegido?")){
+//      this.service.removeProyect(proy.key);
+      let index = this.proyectos.indexOf(proy);
+      let key = this.proyectos.splice(index, 1);
     }
   }
 
