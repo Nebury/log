@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mis-tareas',
@@ -9,9 +10,21 @@ export class MisTareasComponent implements OnInit {
 
   algo: number;
 
-  constructor() { }
+  constructor(private router: Router, private ngZone: NgZone) { }
 
   ngOnInit() {
+  }
+
+  informe(){
+    this.ngZone.run(() => {
+      this.router.navigateByUrl('/informe');
+    });
+  }
+
+  bitacora(){
+    this.ngZone.run(() => {
+      this.router.navigateByUrl('/bitacora');
+    });
   }
 
 }

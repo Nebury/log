@@ -7,6 +7,8 @@ import { HistorialComponent } from '../components/historial/historial.component'
 import { NuevoProyectoComponent } from '../components/nuevo-proyecto/nuevo-proyecto.component';
 import { MisTareasComponent } from '../components/mis-tareas/mis-tareas.component';
 import { LoginComponent } from '../components/login/login.component';
+import { InformeComponent } from '../components/informe/informe.component';
+import { BitacoraComponent } from '../components/bitacora/bitacora.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'historial', component: HistorialComponent },
   { path: 'clientes', component: ClientesComponent},
   { path: 'nuevo-proyecto', component: NuevoProyectoComponent},
-  { path: 'mis-tareas', component: MisTareasComponent}
+  { path: 'mis-tareas', component: MisTareasComponent},
+  { path: 'informe', component: InformeComponent },
+  { path: 'bitacora', component: BitacoraComponent },
 ];
 
 @NgModule({
