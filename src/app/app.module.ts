@@ -12,11 +12,14 @@ import { HistorialComponent } from '../app/components/historial/historial.compon
 import { ClientesComponent } from '../app/components/clientes/clientes.component';
 import { NuevoProyectoComponent } from '../app/components/nuevo-proyecto/nuevo-proyecto.component';
 import { MisTareasComponent } from '../app/components/mis-tareas/mis-tareas.component';
+import { DescripcionComponent } from '../app/components/descripcion/descripcion.component';
 
 import { AppRoutingModule } from '../app/routing/app-routing.module';
 import { LoginComponent } from '../app/components/login/login.component';
 import { NavbarComponent } from '../app/components/navbar/navbar.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { InformeComponent } from './components/informe/informe.component';
+import { BitacoraComponent } from './components/bitacora/bitacora.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     MisTareasComponent,
     LoginComponent,
     NavbarComponent,
+    InformeComponent,
+    BitacoraComponent,
+    DescripcionComponent,
   ],
   imports: [
     BrowserModule,
