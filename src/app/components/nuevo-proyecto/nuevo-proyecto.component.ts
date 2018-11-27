@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs';
 import { Proyecto } from '../../model/Proyecto';
 import { Tarea } from '../../model/Tarea';
 import { Equipo } from '../../model/Equipo';
+import { ProyectoService } from 'src/app/services/proyecto.service';
+import { Cliente } from 'src/app/model/Cliente';
 
 @Component({
   selector: 'app-nuevo-proyecto',
@@ -11,7 +11,7 @@ import { Equipo } from '../../model/Equipo';
   styleUrls: ['./nuevo-proyecto.component.css']
 })
 export class NuevoProyectoComponent implements OnInit {
-  cont: number = 100;
+
   proyecto: Proyecto = {
     titulo: null,
     descripcion: null,
@@ -33,44 +33,48 @@ export class NuevoProyectoComponent implements OnInit {
 
   equipo: Equipo = {
     nombre: null,
-    apellido: null
+    apellido: null,
+    id: null,
   }
 
   key: String;
-  listaProy: Observable<any[]>;
-  listaTarea: Observable<any[]>;
-  listaEquipo: Observable<any[]>;
+  idC: number;
+  clientes: Cliente[] = [{
+    nombre: 'Nombre 1',
+    id: 1,
+  },
+  {
+    nombre: 'Nombre 2',
+    id: 2,
+  },
+  {
+    nombre: 'Nombre 3',
+    id: 3,
+  }];
 
-  constructor(public db: AngularFireDatabase) { 
-    this.listaProy = db.list('Proyectos').valueChanges();
-    this.listaTarea = db.list('Tareas').valueChanges();
-    this.listaEquipo = db.list('Equipo').valueChanges();
-  }
+  proyMang: Equipo[] = [{
+    nombre: 'Nombre 1',
+    apellido: 'Apellido 1',
+    id: 1,
+  },{
+    nombre: 'Nombre 2',
+    apellido: 'Apellido 2',
+    id: 2,
+  },{
+    nombre: 'Nombre 3',
+    apellido: 'Apellido 3',
+    id: 3,
+  }];
+
+  constructor(private service: ProyectoService) { }
 
   ngOnInit() {  }
 
-  enterProyecto(): void{
-    this.proyecto.titulo = 'titulo' + this.cont;
-    this.proyecto.descripcion = 'descripcion' + this.cont;
-    this.proyecto.idCliente = this.cont;
-    this.proyecto.proyectManager = this.cont;
-    this.proyecto.semanas = this.cont;
-    this.proyecto.fechaInicio = '11-16-2018';
-    this.proyecto.fechaFinal = '5-24-2020';
-    this.proyecto.estado = 'Terminado';
-    this.key = this.db.list('/Proyectos').push({
-      titulo: this.proyecto.titulo,
-      descripcion: this.proyecto.descripcion,
-      idCliente: this.proyecto.idCliente,
-      proyectManager: this.proyecto.proyectManager,
-      semanas: this.proyecto.semanas,
-      fechaInicio: this.proyecto.fechaInicio,
-      fechaFinal: this.proyecto.fechaFinal,
-      estado: this.proyecto.estado
-    }).key.toString();
-    this.cont += 2;
-    alert(this.key);
+  save(): void{
+    this.key = this.service.addProyect(this.proyecto);
+    alert('Nuevo Proyecto Ingresado, su key es: ' + this.key);
   }
+/*
 
   enterTarea(): void{
     this.tarea.descripcion = 'Hacer' + this.cont;
@@ -97,7 +101,7 @@ export class NuevoProyectoComponent implements OnInit {
     alert('Done');
     this.cont += 2;
   }
-
+*/
 }
 
 
