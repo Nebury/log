@@ -24,11 +24,6 @@ export class NuevoProyectoComponent implements OnInit {
     key: null,
   };
 
-  cliente: Cliente = {
-    nombre: null,
-    id: null,
-  }
-
   tarea: Tarea = {
     descripcion: null,
     encargado: null,
@@ -38,10 +33,12 @@ export class NuevoProyectoComponent implements OnInit {
 
   equipo: Equipo = {
     nombre: null,
-    apellido: null
+    apellido: null,
+    id: null,
   }
 
   key: String;
+  idC: number;
   clientes: Cliente[] = [{
     nombre: 'Nombre 1',
     id: 1,
@@ -55,23 +52,27 @@ export class NuevoProyectoComponent implements OnInit {
     id: 3,
   }];
 
-  proyMang: number[] = [10, 20, 30, 40, 50];
+  proyMang: Equipo[] = [{
+    nombre: 'Nombre 1',
+    apellido: 'Apellido 1',
+    id: 1,
+  },{
+    nombre: 'Nombre 2',
+    apellido: 'Apellido 2',
+    id: 2,
+  },{
+    nombre: 'Nombre 3',
+    apellido: 'Apellido 3',
+    id: 3,
+  }];
 
   constructor(private service: ProyectoService) { }
 
   ngOnInit() {  }
 
   save(): void{
-    alert(this.proyecto.titulo);
-    alert(this.proyecto.descripcion);
-    alert(this.proyecto.idCliente);
-    alert(this.proyecto.proyectManager);
-    alert(this.proyecto.semanas);
-    alert(this.proyecto.fechaInicio);
-    /*
     this.key = this.service.addProyect(this.proyecto);
     alert('Nuevo Proyecto Ingresado, su key es: ' + this.key);
-    */
   }
 /*
 

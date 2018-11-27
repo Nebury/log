@@ -36,9 +36,9 @@
       <h4> 
           <span class="badge badge-primary">Nombre del Cliente: </span> <br/>
           <p></p>  
-          <select class="custom-select custom-select-sm" id="cliente">
+          <select [(ngModel)]="proyecto.idCliente" class="custom-select custom-select-sm" id="cliente">
             <option>Elegir un Cliente</option>
-            <option [value]="proyecto.idCliente" *ngFor="let cliente of clientes">{{cliente.id}}</option>
+            <option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
           </select>
       </h4>
       <br>
@@ -46,9 +46,10 @@
       <h4>
           <span class="badge badge-primary">Proyect Manager:  </span>  
           <p></p>
-           <select class="custom-select custom-select-sm" id="pm"  >
-            <option selected>Open this select menu</option>
-          </select> 
+          <select [(ngModel)]="proyecto.proyectManager" class="custom-select custom-select-sm" id="cliente">
+            <option>Elegir al PM</option>
+            <option [value]="equipo.id" *ngFor="let equipo of proyMang">{{equipo.nombre}} {{equipo.apellido}}</option>
+          </select>
       </h4>
       <br>
       <br>

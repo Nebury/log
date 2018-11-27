@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 import { Proyecto } from 'src/app/model/Proyecto';
@@ -11,8 +11,7 @@ import { Proyecto } from 'src/app/model/Proyecto';
 
 export class InicioComponent implements OnInit {
 
-  constructor(private db: AngularFireDatabase, private service: ProyectoService) {
-  }
+  constructor(private db: AngularFireDatabase, private service: ProyectoService) {}
 
   proyectos: Proyecto[];
   gotKey: boolean = false;

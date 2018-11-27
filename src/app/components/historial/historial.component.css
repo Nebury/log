@@ -1,0 +1,24 @@
+div#cards{
+    left: 50px;
+    background-color: azure;
+    width: 50%;
+}
+
+div#grid{
+    margin-left: 3%;
+    background-color: black;
+    margin-right: 18%;
+    height: 200px;
+    border-radius: 30px;
+}
+
+hr#lineas{
+    width: 320%;
+}
+
+div#back{
+    margin: auto;
+    height: 1350px;
+    width: 80%;
+    background-color: white;
+}
