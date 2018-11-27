@@ -58,21 +58,22 @@ export class InicioComponent implements OnInit {
     .snapshotChanges()
     .subscribe(list => {
       list.forEach(proy => {
-      let x = proy.payload.toJSON();
-      x['$key'] = proy.key;
-      let y = x as Proyecto;
-      y.key = proy.key;
-
-      if (y.estado == 'Terminado'){
+        let x = proy.payload.toJSON();
+        let y = x as Proyecto;
+        y.key = proy.key;
+        if (y.estado == 'Terminado'){
           if (cont <= 5){
-            array2.push(y);
-            if (cont == 1){
-            this.lastKey = y.key;
+            if (y.key == over){
+              this.finish = false;
+            }else{
+              array2.push(y);
+              if (cont == 1){
+                this.lastKey = y.key;
+              }  
             }
           }
-        }  
-
-      cont += 1;
+        }
+        cont += 1;
       })
     });
     this.proyectos = array2;
@@ -83,6 +84,7 @@ export class InicioComponent implements OnInit {
   }
 
   previous(){
+    this.finish = true;
     this.pos -= 1;
     if (this.pos == 0){
       this.ngOnInit();
