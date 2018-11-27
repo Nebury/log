@@ -18,16 +18,16 @@
  <br>
   <label>
       <h4>
-        <span class="badge badge-primary">Nombre del proyecto: </span> <br/>   
-        <input id="titulo" type="text" placeholder="Nuevo proyecto" [(ngModel)]="proyecto.name" >
+        <span class="badge badge-primary">Nombre del proyecto: </span> <br/>
+        <input id="titulo" type="text" placeholder="Nuevo proyecto" [(ngModel)]="proyecto.titulo" >
       </h4> 
       <br>
       <br>
       <h4>
-          <span class="badge badge-primary">Descripcion del proyecto: </span> <br/>
+          <span class="badge badge-primary">Descripcion del proyecto: </span><br/>
       </h4>
       <form id="descripcion" action = "/cgi-bin/hello_get.cgi" method = "get">
-        <textarea rows = "3" cols = "60" name = "description"></textarea><br>
+        <textarea [(ngModel)]="proyecto.descripcion" rows = "3" cols = "60" name = "description"></textarea><br>
       </form>
       <br>
       <br>
@@ -36,37 +36,34 @@
       <h4> 
           <span class="badge badge-primary">Nombre del Cliente: </span> <br/>
           <p></p>  
-           <select  class="custom-select custom-select-sm" id="cliente">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select> 
+          <select [(ngModel)]="proyecto.idCliente" class="custom-select custom-select-sm" id="cliente">
+            <option>Elegir un Cliente</option>
+            <option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
+          </select>
       </h4>
       <br>
       <br>
       <h4>
           <span class="badge badge-primary">Proyect Manager:  </span>  
           <p></p>
-           <select class="custom-select custom-select-sm" id="pm">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select> 
+          <select [(ngModel)]="proyecto.proyectManager" class="custom-select custom-select-sm" id="cliente">
+            <option>Elegir al PM</option>
+            <option [value]="equipo.id" *ngFor="let equipo of proyMang">{{equipo.nombre}} {{equipo.apellido}}</option>
+          </select>
       </h4>
       <br>
       <br>
       <h4>
           <span class="badge badge-primary">Semanas estimadas:  </span>  
           <p></p>
-          <input id="titulo" type="text" placeholder="Nuevo proyecto">
+          <input id="titulo" type="text" placeholder="X Semanas" [(ngModel)]="proyecto.semanas">
         </h4>
       <br>
       <br>
       <h4>
           <span class="badge badge-primary">Fechas de inicio:  </span>  
           <br>
-          <input id="fecha" type="date" placeholder="Nuevos proyecto">   <input type="submit" id="Guardar">
+          <input id="fecha" type="date" placeholder="Nuevos proyecto" [(ngModel)]="proyecto.fechaInicio">
+          <input type="submit" id="Guardar" (click)="save()" >
       </h4>
 </label>
