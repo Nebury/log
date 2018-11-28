@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Proyecto } from '../../model/Proyecto';
 import { Tarea } from '../../model/Tarea';
 import { Equipo } from '../../model/Equipo';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 import { Cliente } from 'src/app/model/Cliente';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nuevo-proyecto',
@@ -11,6 +12,13 @@ import { Cliente } from 'src/app/model/Cliente';
   styleUrls: ['./nuevo-proyecto.component.css']
 })
 export class NuevoProyectoComponent implements OnInit {
+
+  constructor(
+    private service: ProyectoService,
+    private router: Router,
+    private ngZone: NgZone) { }
+
+  ngOnInit() {  }
 
   proyecto: Proyecto = {
     titulo: null,
@@ -66,16 +74,14 @@ export class NuevoProyectoComponent implements OnInit {
     id: 3,
   }];
 
-  constructor(private service: ProyectoService) { }
-
-  ngOnInit() {  }
-
   save(): void{
     this.key = this.service.addProyect(this.proyecto);
-    alert('Nuevo Proyecto Ingresado, su key es: ' + this.key);
+    this.ngZone.run(() => {
+      this.router.navigateByUrl('/descripcion/' + this.key);
+    });
   }
-/*
 
+/*
   enterTarea(): void{
     this.tarea.descripcion = 'Hacer' + this.cont;
     this.tarea.encargado = this.cont;
