@@ -111,6 +111,10 @@ export class HistorialComponent implements OnInit {
       this.service.removeProyect(proy.key);
       let index = this.proyectos.indexOf(proy);
       let key = this.proyectos.splice(index, 1);
+      if (this.pos == 0){
+        this.proyectos = [];
+        this.ngOnInit();  
+      }
     }
   }
 
