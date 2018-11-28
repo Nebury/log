@@ -20,9 +20,9 @@ button#boton{
 }
 
 input[type=text] {
-    width: 130px;
+    width: 100%;
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    border: 2px solid white;
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
@@ -30,10 +30,5 @@ input[type=text] {
     background-position: 0; 
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
-    width: 100%;
-}
