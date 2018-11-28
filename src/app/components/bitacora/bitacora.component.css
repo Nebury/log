@@ -27,8 +27,8 @@ input[type=text] {
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-
-    background-position: 10px 10px; 
+    background-image: url('https://www.condolawalberta.ca/wp-content/uploads/2016/07/book-icon-small.png');
+    background-position: 0; 
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;

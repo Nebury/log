@@ -1,0 +1,39 @@
+div#back{
+    margin: auto;
+    height: 750px;
+    width: 80%;
+    background-color: whitesmoke;
+    overflow: auto;
+}
+
+H6#estado{
+    margin-left: 95%;
+}
+
+button#boton{
+    border-radius: 50%;
+}
+
+.si{
+    padding-left: 80%;
+    padding-top: 45%;
+}
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('https://www.condolawalberta.ca/wp-content/uploads/2016/07/book-icon-small.png');
+    background-position: 0; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
