@@ -24,7 +24,7 @@ export class HistorialComponent implements OnInit {
     this.start = false;
     this.finish = true;
     let array = [];
-    this.service.getProyect(5)
+    this.service.getProyects(5)
     .snapshotChanges()
     .subscribe(list => {
       list.forEach(proy => {
@@ -50,7 +50,7 @@ export class HistorialComponent implements OnInit {
     let array2 = [];
     let cont = 1;
     let over = this.lastKey
-    this.service.getProyect(5, this.lastKey)
+    this.service.getProyects(5, this.lastKey)
     .snapshotChanges()
     .subscribe(list => {
       list.forEach(proy => {
@@ -85,7 +85,7 @@ export class HistorialComponent implements OnInit {
     }else{
       let array2 = [];
       let cont = 1;
-      this.service.getProyect(5, this.keyPag[this.pos])
+      this.service.getProyects(5, this.keyPag[this.pos])
       .snapshotChanges()
       .subscribe(list => {
         list.forEach(proy => {
@@ -103,6 +103,14 @@ export class HistorialComponent implements OnInit {
         })
       });
       this.proyectos = array2;
+    }
+  }
+
+  borrar(proy: Proyecto){
+    if (confirm("¿Está seguro de eliminar el proyecto elegido?")){
+      this.service.removeProyect(proy.key);
+      let index = this.proyectos.indexOf(proy);
+      let key = this.proyectos.splice(index, 1);
     }
   }
 

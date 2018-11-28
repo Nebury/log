@@ -8,8 +8,11 @@
   <div class="row" *ngFor="let proyecto of proyectos">
     <div class="col-sm-4">
       <h1>{{ proyecto.titulo }}</h1>
-      <h5>{{ proyecto.key }}</h5>
+      <input type="button" (click)="borrar(proyecto)" value="X" style="float:right" >
+      <h5>{{ proyecto.idCliente }}</h5>
       <p>{{ proyecto.descripcion }}</p>
+      <p>{{ proyecto.key }}</p>
+      <a routerLink="/descripcion/{{proyecto.key}}">Ver Detalles</a>
       <br>
       <hr id="lineas">
       <br/>

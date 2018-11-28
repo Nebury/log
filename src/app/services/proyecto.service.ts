@@ -11,18 +11,27 @@ export class ProyectoService {
   lista: AngularFireList<any>;
   lastKey: string = '';
 
-  getProyect(limit: number, end?: string){
+  getProyects(limit: number, end?: string, filtro?: boolean){
     this.lista = null;
-    if(end == null){
-      return this.lista = this.db.list('/Proyectos', ref => 
-      ref.orderByKey()
-      .ref.limitToLast(limit));
+    //Queries para Inicio
+    if (filtro){
+        return this.lista = this.db.list('/Proyectos', ref => 
+        ref.orderByChild('estado')
+        .equalTo('En Progreso')
+        .limitToLast(limit));
     }else{
-      return this.lista = this.db.list('/Proyectos', ref => 
+    //Queries para Historial
+      if(end == null){
+        return this.lista = this.db.list('/Proyectos', ref => 
         ref.orderByKey()
-        .endAt(end)
-        .limitToLast(limit+1)
-        );
+        .limitToLast(limit));
+      }else{
+        return this.lista = this.db.list('/Proyectos', ref => 
+          ref.orderByKey()
+          .endAt(end)
+          .limitToLast(limit+1)
+          );
+      }
     }
   }
 
@@ -38,6 +47,19 @@ export class ProyectoService {
       fechaFinal: proyecto.fechaFinal,
       estado: proyecto.estado
     }).key.toString();
+  }
+
+  getProyect(key: string){
+    return this.db.list('/Proyectos', ref => 
+    ref.orderByKey()
+    .equalTo(key)
+    );
+  }
+
+  removeProyect(key: string){
+    this.db.list('/Proyectos/' + key)
+    .remove()
+    .then( () => alert('Proyecto eliminado exitosamente'));
   }
 
 }
