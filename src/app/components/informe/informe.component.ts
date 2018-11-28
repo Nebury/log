@@ -11,5 +11,6 @@ export class InformeComponent implements OnInit {
 
   ngOnInit() {
   }
+  
 
 }
