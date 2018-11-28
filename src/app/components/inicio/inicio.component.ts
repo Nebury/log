@@ -22,6 +22,10 @@ export class InicioComponent implements OnInit {
   keyPag: string[] = [];
 
   ngOnInit() {
+    this.started();
+  }
+
+  started(){
     this.start = false;
     this.finish = true;
     let array = [];
@@ -46,37 +50,34 @@ export class InicioComponent implements OnInit {
     }
   }
 
-  //no sirve
-
   next(){
+    this.pos += 1;
     this.start = true;
     let array2 = [];
     let cont = 1;
     let over = this.lastKey
-    this.service.getProyects(5, this.lastKey, true)
+    this.service.getProyects( ((this.pos + 1) * 5) , null, true)
     .snapshotChanges()
     .subscribe(list => {
       list.forEach(proy => {
-        let x = proy.payload.toJSON();
-        let y = x as Proyecto;
-        y.key = proy.key;
-        if (y.estado == 'Terminado'){
-          if (cont <= 5){
-            if (y.key == over){
-              this.finish = false;
-            }else{
-              array2.push(y);
-              if (cont == 1){
-                this.lastKey = y.key;
-              }  
-            }
+        if (cont <= 5){
+          let x = proy.payload.toJSON();
+          let y = x as Proyecto;
+          y.key = proy.key;
+          if (y.key == over){
+            this.finish = false;
+          }
+          if(this.finish){
+            array2.push(y);
+            if (cont == 1){
+              this.lastKey = y.key;
+            }  
           }
         }
         cont += 1;
       })
     });
     this.proyectos = array2;
-    this.pos += 1;
     if (!this.keyPag.includes(this.lastKey)){
       this.keyPag.push(this.lastKey)
     }
@@ -91,7 +92,7 @@ export class InicioComponent implements OnInit {
     }else{
       let array2 = [];
       let cont = 1;
-      this.service.getProyects(5, this.keyPag[this.pos], true)
+      this.service.getProyects( (this.pos + 1) * 5, null, true)
       .snapshotChanges()
       .subscribe(list => {
         list.forEach(proy => {
@@ -113,10 +114,13 @@ export class InicioComponent implements OnInit {
 
   borrar(proy: Proyecto){
     if (confirm("¿Está seguro de eliminar el proyecto elegido?")){
-//      this.service.removeProyect(proy.key);
+      this.service.removeProyect(proy.key);
       let index = this.proyectos.indexOf(proy);
       let key = this.proyectos.splice(index, 1);
     }
   }
 
 }
+
+
+//Tiempo para arreglar paginado   20:50   -    22:10

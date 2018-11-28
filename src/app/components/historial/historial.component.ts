@@ -109,7 +109,8 @@ export class HistorialComponent implements OnInit {
   borrar(proy: Proyecto){
     if (confirm("¿Está seguro de eliminar el proyecto elegido?")){
       this.service.removeProyect(proy.key);
-      window.location.reload();
+      let index = this.proyectos.indexOf(proy);
+      let key = this.proyectos.splice(index, 1);
     }
   }
 

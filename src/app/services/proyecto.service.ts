@@ -15,20 +15,10 @@ export class ProyectoService {
     this.lista = null;
     //Queries para Inicio
     if (filtro){
-      if(end == null){
         return this.lista = this.db.list('/Proyectos', ref => 
         ref.orderByChild('estado')
-        .equalTo('Terminado')
+        .equalTo('En Progreso')
         .limitToLast(limit));
-      }else{
-        //Filtro de columna y el otro segmento de una
-        return this.lista = this.db.list('/Proyectos', ref => 
-          ref
-          .orderByKey()
-          .endAt(end)
-          .limitToLast(limit+1)
-          );
-      }
     }else{
     //Queries para Historial
       if(end == null){
