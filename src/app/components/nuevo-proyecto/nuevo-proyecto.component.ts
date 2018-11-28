@@ -28,7 +28,7 @@ export class NuevoProyectoComponent implements OnInit {
     semanas: null,
     fechaInicio: null,
     fechaFinal: null,
-    estado: null,
+    estado: 'Activo',
     key: null,
   };
 
