@@ -1,0 +1,21 @@
+
+div#back{
+    margin: auto;
+    height: 750px;
+    width: 80%;
+    background-color: whitesmoke;
+    overflow: auto;
+}
+
+H6#estado{
+    margin-left: 95%;
+}
+
+button#boton{
+    border-radius: 50%;
+}
+
+.si{
+    padding-left: 80%;
+    padding-top: 45%;
+}
