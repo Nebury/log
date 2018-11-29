@@ -40,3 +40,78 @@ h1#titulo{
     background-size: contain;
     outline: none;
   }
+
+  div#info{
+    position: absolute;
+    background-color: whitesmoke;
+    margin-left: 110%;
+    margin-top: 2%;
+    width: 125%;
+    height: 45%;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px 18px #888888;
+  }
+
+  img#infoimagen{
+      width: 16%;
+      height: 30%;
+      background-color: black;
+      margin-top: 3%;
+      margin-left: 3%;
+  }
+
+  h1#title{
+      position: absolute;
+      left: 25%;
+      top: 3%;
+  }
+
+  textarea#descrip{
+      position: absolute;
+      font-size: 13px;
+      left: 25%;
+      width: 70%;
+      top: 18%;
+      outline: none;
+      border: none;
+      background-color: whitesmoke;
+      resize: none;
+  }
+
+  h4#contacto{
+      margin-left: 25%;
+  }
+
+  input#nomcon{
+    width: 40%;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    background-color: whitesmoke
+  }
+
+  h4#telefono{
+      margin-left: 25%;
+  }
+
+  a:link, a:visited {
+    background-color: darkcyan;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+input#cantp{
+    width: 10%;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    background-color: whitesmoke;
+    
+}
+
+/* ---------------------------------- */
+
