@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Proyecto } from 'src/app/model/Proyecto';
 import { ActivatedRoute } from '@angular/router';
 import { ProyectoService } from 'src/app/services/proyecto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-descripcion',
@@ -12,7 +13,7 @@ export class DescripcionComponent implements OnInit {
 
   proyecto: Proyecto;
   proyKey: string;
-  constructor(private router: ActivatedRoute, private service: ProyectoService) { }
+  constructor(private router: ActivatedRoute, private service: ProyectoService, private ngZone: NgZone, private rute: Router ) { }
 
   ngOnInit() {
     this.proyKey = this.router.snapshot.paramMap.get('id');
@@ -25,6 +26,22 @@ export class DescripcionComponent implements OnInit {
         y.key = item.key;
         this.proyecto = y;
       })
+    });
+  }
+
+  algo: number;
+
+
+
+  informe(){
+    this.ngZone.run(() => {
+      this.rute.navigateByUrl('/informe');
+    });
+  }
+
+  bitacora(){
+    this.ngZone.run(() => {
+      this.rute.navigateByUrl('/bitacora');
     });
   }
 

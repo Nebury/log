@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
 <br>
-<div class="container" id="back">
+<div class="container" id="back" >
   <h1 style="text-align:center;">{{proyecto.titulo}}</h1>
   <hr>
-  <h2  style="text-align:center;" >{{proyecto.descripcion}}</h2>
+  <h3  style="text-align:center;" >{{proyecto.descripcion}}</h3>
   <br/>
   <h3><span class="badge badge-primary">Cliente:</span></h3> 
   <h3 id="content">{{proyecto.idCliente}}</h3>
@@ -24,8 +24,5 @@
   <h3 id="content">{{proyecto.key}}</h3>
   <br/>
 
-  <input  class="btn btn-outline-success" type="button" value="Vitacora del proyecto"> <a style="opacity:0.0;">--</a>
-  <br>
-  <br>
-  <input  class="btn btn-outline-success" type="button" value="Informe del proyecto"> 
+  <input style="margin-left:55%;" class="btn btn-outline-success" (click)="bitacora()"  type="button" value="Vitacora del proyecto"> <a style="opacity:0.0;">--</a><input id="but2" class="btn btn-outline-success" type="button" (click)="informe()" value="Informe del proyecto"> 
   </div>  
