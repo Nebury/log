@@ -1,0 +1,14 @@
+div#back{
+    background-color: white;
+    width: 60%;
+    height: 200px;
+    margin-left: 20%;
+    border: 1px;
+}
+
+div#backdoor{
+    margin: auto;
+    height: 1350px;
+    width: 80%;
+    background-color: white;
+}

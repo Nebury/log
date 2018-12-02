@@ -20,21 +20,42 @@ button#boton{
     padding-top: 45%;
 }
 
-input[type=text] {
+input#text {
     width: 130px;
+    height: 45%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-
-    background-position: 10px 10px; 
+    background-image: url('https://www.condolawalberta.ca/wp-content/uploads/2016/07/book-icon-small.png');
+    background-position: 0; 
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
+input#text:focus {
+    width: 100%;
+}
+
+input#search {
+    width: 180px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('https://www.condolawalberta.ca/wp-content/uploads/2016/07/book-icon-small.png');
+    background-position: 0; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input#search:focus {
     width: 100%;
 }

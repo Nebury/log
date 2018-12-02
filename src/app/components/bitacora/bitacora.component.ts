@@ -12,4 +12,6 @@ export class BitacoraComponent implements OnInit {
   ngOnInit() {
   }
 
+  
+
 }

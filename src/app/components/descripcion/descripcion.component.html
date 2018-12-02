@@ -1,17 +1,28 @@
 <app-navbar></app-navbar>
-<p>
-  descripcion works!
-</p>
-<br/>
-<label>{{proyecto.titulo}}</label>
-<br/>
-<label>{{proyecto.descripcion}}</label>
-<br/>
-<label>{{proyecto.idCliente}}</label>
-<br/>
-<label>{{proyecto.proyectManager}}</label>
-<br/>
-<label>{{proyecto.semanas}}</label>
-<br/>
-<label>{{proyecto.key}}</label>
-<br/>
+<br>
+<div class="container" id="back" >
+  <h1 style="text-align:center;">{{proyecto.titulo}}</h1>
+  <hr>
+  <h3  style="text-align:center;" >{{proyecto.descripcion}}</h3>
+  <br/>
+  <h3><span class="badge badge-primary">Cliente:</span></h3> 
+  <h3 id="content">{{proyecto.idCliente}}</h3>
+
+  <h3><span class="badge badge-info">Proyect Manager:</span></h3> 
+  <h3 id="content">{{proyecto.proyectManager}}</h3>
+  
+  <h3><span class="badge badge-warning">Semanas establecidas: </span></h3> 
+  <h3 id="content">{{proyecto.semanas}}</h3>
+
+  <h3><span class="badge badge-success">Fecha de inicio: </span></h3> 
+  <h3 id="content">--------------</h3>
+
+  <h3><span class="badge badge-danger">Fecha de cierre: </span></h3> 
+  <h3 id="content">--------------</h3>
+  
+  <h3><span class="badge badge-secondary">Id proyecto: </span></h3> 
+  <h3 id="content">{{proyecto.key}}</h3>
+  <br/>
+
+  <input style="margin-left:55%;" class="btn btn-outline-success" (click)="bitacora()"  type="button" value="Vitacora del proyecto"> <a style="opacity:0.0;">--</a><input id="but2" class="btn btn-outline-success" type="button" (click)="informe()" value="Informe del proyecto"> 
+  </div>  

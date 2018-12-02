@@ -3,22 +3,20 @@
 <div class="container" lass="shadow-lg p-3 mb-5 bg-white rounded" id="back">
 <h1 style="text-align:center;">Historial de proyectos</h1>
 <hr>
-<br/>
 <div>
   <div class="row" *ngFor="let proyecto of proyectos">
-    <div class="col-sm-4">
+    <div class="col-sm-9">
       <h1>{{ proyecto.titulo }}</h1>
-      <input type="button" (click)="borrar(proyecto)" value="X" style="float:right" >
+      <input type="button" class="btn btn-outline-light" (click)="borrar(proyecto)" value="Eliminar Proyecto" style="float:right" >
       <h5>{{ proyecto.idCliente }}</h5>
       <p>{{ proyecto.descripcion }}</p>
       <p>{{ proyecto.key }}</p>
-      <a routerLink="/descripcion/{{proyecto.key}}">Ver Detalles</a>
+      <input class="btn btn-outline-info" type="button" value="Ir a descripcion" routerLink="/descripcion/{{proyecto.key}}">
       <br>
       <hr id="lineas">
-      <br/>
     </div>
   </div>
   <div style="height: 5px" >
-    <input *ngIf="start" type="button" value="Retroceder" (click)="previous()">  -  
-    <input *ngIf="finish" type="button" value="Siguiente" (click)="next()">    
+    <input *ngIf="start" class="btn btn-outline-info" type="button" value="Retroceder" (click)="previous()">  <a style="opacity:0.0;">--</a>  
+    <input *ngIf="finish" class="btn btn-outline-success" type="button" value="Siguiente" (click)="next()">    
   </div>

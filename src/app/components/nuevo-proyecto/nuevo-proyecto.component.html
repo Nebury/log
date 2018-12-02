@@ -10,7 +10,7 @@
 <input type="submit" (click)="enterEquipo()">
 <br/>>-->
 <br>
-<div class="container" id="back">
+<div class="container" class="shadow p-3 mb-5 bg-white rounded" id="back">
  <h1 id="titulo">
    Proyecto Nuevo
  </h1>
@@ -24,7 +24,7 @@
       <br>
       <br>
       <h4>
-          <span class="badge badge-primary">Descripcion del proyecto: </span><br/>
+          <span class="badge badge-success">Descripcion del proyecto: </span><br/>
       </h4>
       <form id="descripcion" action = "/cgi-bin/hello_get.cgi" method = "get">
         <textarea [(ngModel)]="proyecto.descripcion" rows = "3" cols = "60" name = "description"></textarea><br>
@@ -34,7 +34,7 @@
       <br>
       <br>
       <h4> 
-          <span class="badge badge-primary">Nombre del Cliente: </span> <br/>
+          <span class="badge badge-danger">Nombre del Cliente: </span> <br/>
           <p></p>  
           <select [(ngModel)]="proyecto.idCliente" class="custom-select custom-select-sm" id="cliente">
             <option>Elegir un Cliente</option>
@@ -44,7 +44,7 @@
       <br>
       <br>
       <h4>
-          <span class="badge badge-primary">Proyect Manager:  </span>  
+          <span class="badge badge-warning">Proyect Manager:  </span>  
           <p></p>
           <select [(ngModel)]="proyecto.proyectManager" class="custom-select custom-select-sm" id="cliente">
             <option>Elegir al PM</option>
@@ -54,14 +54,14 @@
       <br>
       <br>
       <h4>
-          <span class="badge badge-primary">Semanas estimadas:  </span>  
+          <span class="badge badge-info">Semanas estimadas:  </span>  
           <p></p>
           <input id="titulo" type="text" placeholder="X Semanas" [(ngModel)]="proyecto.semanas">
         </h4>
       <br>
       <br>
       <h4>
-          <span class="badge badge-primary">Fechas de inicio:  </span>  
+          <span class="badge badge-dark">Fechas de inicio:  </span>  
           <br>
           <input id="fecha" type="date" placeholder="Nuevos proyecto" [(ngModel)]="proyecto.fechaInicio">
           <input type="submit" id="Guardar" (click)="save()" >
