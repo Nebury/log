@@ -26,8 +26,9 @@ export class InicioComponent implements OnInit {
   }
 
   started(){
+    let cont: number = 0;
     this.start = false;
-    this.finish = true;
+    this.finish = false;
     let array = [];
     this.service.getProyects(5, null, true)
     .snapshotChanges()
@@ -35,11 +36,15 @@ export class InicioComponent implements OnInit {
       list.forEach(proy => {
         let x = proy.payload.toJSON();
         let y = x as Proyecto;
-        y.key = proy.key;
-        array.push(y)
+        y.key = proy.key;  
+        array.push(y);
         if (!this.gotKey){
           this.lastKey = y.key;
           this.gotKey = true;
+        }
+        cont += 1;
+        if (cont == 5){
+          this.finish = true;
         }
      })
     });
@@ -119,7 +124,7 @@ export class InicioComponent implements OnInit {
       let key = this.proyectos.splice(index, 1);
       if (this.pos == 0){
         this.proyectos = [];
-        this.ngOnInit();  
+        this.ngOnInit();
       }
     }
   }

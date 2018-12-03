@@ -21,6 +21,7 @@ export class HistorialComponent implements OnInit {
   keyPag: string[] = [];
 
   ngOnInit() {
+    let cont: number = 0;
     this.start = false;
     this.finish = true;
     let array = [];
@@ -35,6 +36,10 @@ export class HistorialComponent implements OnInit {
         if (!this.gotKey){
           this.lastKey = y.key;
           this.gotKey = true;
+        }
+        cont += 1;
+        if (cont == 5){
+          this.finish = true;
         }
      })
     });

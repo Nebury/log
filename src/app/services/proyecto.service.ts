@@ -17,7 +17,7 @@ export class ProyectoService {
     if (filtro){
         return this.lista = this.db.list('/Proyectos', ref => 
         ref.orderByChild('estado')
-        .equalTo('En Progreso')
+        .equalTo('Activo')
         .limitToLast(limit));
     }else{
     //Queries para Historial
